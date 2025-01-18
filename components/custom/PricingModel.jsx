@@ -3,8 +3,8 @@ import Lookup from '@/data/Lookup';
 
 import { UserDetailContext } from '@/context/UserDetailContext';
 import { api } from '@/convex/_generated/api';
-import { PayPalButtons } from '@paypal/react-paypal-js/dist/cjs/react-paypal-js';
 import { useMutation } from 'convex/react';
+import { PayPalButtons } from '@paypal/react-paypal-js';
 
 function PricingModel() {
   const { userDetail = {}, setUserDetail } = useContext(UserDetailContext); // Fallback to an empty object
@@ -68,7 +68,7 @@ function PricingModel() {
           <h2 className="font-bold text-4xl text-center mt-6">${pricing.price}</h2>
 
           <PayPalButtons
-            disabled={!userDetail._id || isUpdating}
+
             style={{ layout: 'horizontal' }}
             onApprove={async () => {
               console.log('Payment approved');
